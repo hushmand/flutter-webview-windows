@@ -204,11 +204,9 @@ void WebviewWindowsPlugin::CreateWebviewInstance(
                             std::unique_ptr<WebviewCreationError> error) {
         if (!webview) {
           if (error) {
-            return shared_result->Error(
-                kErrorCodeWebviewCreationFailed,
-                std::format(
-                    "Creating the webview failed: {} (HRESULT: {:#010x})",
-                    error->message, error->hr));
+                  return result->Error(kErrorCodeWebviewCreationFailed,
+                         "Creating the webview failed");
+
           }
           return shared_result->Error(kErrorCodeWebviewCreationFailed,
                                       "Creating the webview failed.");
